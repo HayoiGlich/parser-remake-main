@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Парсер продукции</title>
+    <link rel="stylesheet" href="/app/templates/static/styles/styles.css">
+</head>
+<body>
+    <!-- Сайдбар -->
+    <nav class="sidebar">
+        <div class="menu-title">Парсер v2.0</div>
+        
+        <div class="menu-item">
+            <span>📡</span> Сканер
+        </div>
+        <div class="menu-item">
+            <span>🔗</span> Рубикон
+        </div>
+        <div class="menu-item">
+            <span>⚙️</span> Генератор
+        </div>
+        <div class="menu-item">
+            <span>📊</span> ПИК
+        </div>
+        <div class="menu-item">
+            <span>👥</span> Комрад
+        </div>
+        <div class="menu-item">
+            <span>📦</span> Собрать всё
+        </div>
+        <div class="menu-item">
+            <span>⚙️</span> Настройки
+        </div>
+        <div class="menu-item">
+            <span>❓</span> FAQ
+        </div>
+        <div class="menu-item exit">
+            <span>🚪</span> Выход
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <header class="header">
+            <h1 class="title">Парсер продукции</h1>
+            
+            <!-- Панель управления ссылками -->
+            <div class="link-management">
+                <div class="link-input-group">
+                    <input type="text" 
+                           class="url-input" 
+                           placeholder="Введите URL для парсинга...">
+                    <button class="btn btn-primary" id="addLinkBtn">Добавить</button>
+                </div>
+                
+                <div class="added-links-list" id="linksContainer">
+                    <!-- Ссылки будут добавляться сюда -->
+                </div>
+            </div>
+
+            <div class="search-filter">
+                <input type="text" class="search-input" placeholder="Поиск по таблице...">
+                <select class="filter-select">
+                    <option>Все статусы</option>
+                    <option>Активные</option>
+                    <option>Архив</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Область таблицы -->
+        <div class="table-area">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th class="checkbox-column"><input type="checkbox" id="select-all"></th>\
+                        <th>Название продукции</th>
+                        <th>Название организации</th>
+                        <th>S/N</th>
+                        <th>Исполнение</th>
+                        <th>Дата производства</th>
+                        <th>Дата начала лицензии</th>
+                        <th>Дата окончания лицензии</th>
+                        <th>IP</th>
+                        <th>Дополнительных IP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr class="data-row">
+                        <td class="checkbox-column"><input type="checkbox"></td>
+                        <td>Рубикон</td>
+                        <td>КОМИТЕТ ПО ТРУДУ И ЗАНЯТОСТИ НАСЕЛЕНИЯ ПРАВИТЕЛЬСТВА ХАБАРОВСКОГО КРАЯ</td>
+                        <td>017710</td>
+                        <td>2</td>
+                        <td>09.01.2025</td>
+                        <td>09.01.2025</td>
+                        <td>08.01.2026</td>
+                        <td>64</td>
+                        <td>38</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Постраничная навигация -->
+            <div class="pagination">
+                <div class="page-item active">1</div>
+                <div class="page-item">2</div>
+                <div class="page-item">3</div>
+            </div>
+        </div>
+
+        <!-- Контекстное меню -->
+        <div class="context-menu">
+            <div class="context-item">Редактировать</div>
+            <div class="context-item">Удалить</div>
+            <div class="context-item">Переместить</div>
+            <div class="context-item">Экспорт</div>
+        </div>
+    </main>
+    <script src="/app/templates/static/js/index.js"></script>
+</body>
+</html>
