@@ -1,97 +1,88 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Контекстное меню
-    const contextMenu = document.querySelector('.context-menu');
-    
-    // Обработчик правого клика
-    document.querySelectorAll('.data-row').forEach(row => {
-        row.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-            contextMenu.style.display = 'block';
-            contextMenu.style.left = `${e.pageX}px`;
-            contextMenu.style.top = `${e.pageY}px`;
-        });
-    });
-
-    // Закрытие контекстного меню
-    document.addEventListener('click', () => {
-        contextMenu.style.display = 'none';
-    });
-
-    // Поиск по таблице
-    document.querySelector('.search-input')?.addEventListener('input', function() {
-        const filter = this.value.toLowerCase();
-        document.querySelectorAll('.data-row').forEach(row => {
-            row.style.display = row.textContent.toLowerCase().includes(filter) 
-                ? '' 
-                : 'none';
-        });
-    });
-
-    // Выделение всех чекбоксов
-    document.getElementById('select-all')?.addEventListener('change', function() {
-        const checkboxes = document.querySelectorAll('.data-row input[type="checkbox"]');
-        checkboxes.forEach(checkbox => checkbox.checked = this.checked);
-    });
-
-    // Пагинация
-    document.querySelectorAll('.page-item').forEach(item => {
-        item.addEventListener('click', function() {
-            document.querySelector('.page-item.active')?.classList.remove('active');
-            this.classList.add('active');
-        });
-    });
-
-    // Логика работы со ссылками
-    let linksArray = [];
-    
-    // Инициализация обработчиков для ссылок
-    document.querySelector('.btn-primary')?.addEventListener('click', addLink);
-    
-    // Динамическое добавление обработчиков удаления
-    document.getElementById('linksContainer')?.addEventListener('click', (e) => {
-        if(e.target.classList.contains('link-remove')) {
-            const index = Array.from(e.target.parentNode.parentNode.parentNode.children)
-                .indexOf(e.target.parentNode.parentNode);
-            removeLink(index);
-        }
-    });
-
-    function addLink() {
-        const input = document.querySelector('.url-input');
-        const url = input.value.trim();
-        
-        if(url && isValidUrl(url)) {
-            linksArray.push(url);
-            input.value = '';
-            updateLinksDisplay();
-        } else {
-            alert('Пожалуйста, введите корректный URL');
-        }
-    }
-
-    function isValidUrl(string) {
-        try {
-            new URL(string);
-            return true;
-        } catch (_) {
-            return false;
-        }
-    }
-
-    function updateLinksDisplay() {
-        const container = document.getElementById('linksContainer');
-        container.innerHTML = linksArray.map((link, index) => `
-            <div class="link-item">
-                <span>${link}</span>
-                <div class="link-actions">
-                    <span class="link-remove">×</span>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function removeLink(index) {
-        linksArray.splice(index, 1);
-        updateLinksDisplay();
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация
+    initTabs();
+    initModals();
+    initPagination();
+    initFilters();
+    initAuth();
 });
+
+function initTabs() {
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelector('.tab.active').classList.remove('active');
+            tab.classList.add('active');
+            
+            document.querySelector('.content-section.active').classList.remove('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+}
+
+function initModals() {
+    // Логика модальных окон
+    const modals = {
+        addLicense: document.getElementById('addLicenseModal'),
+        addProduct: document.getElementById('addProductModal')
+    };
+
+    // Открытие/закрытие модалок
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modalId = btn.dataset.modal;
+            if (modals[modalId]) {
+                modals[modalId].classList.add('show');
+            }
+        });
+    });
+
+    // Закрытие по клику вне окна
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            e.target.classList.remove('show');
+        }
+    });
+}
+
+function initPagination() {
+    // Логика пагинации
+    document.querySelectorAll('.page-item').forEach(item => {
+        item.addEventListener('click', async () => {
+            const page = item.dataset.page;
+            await loadData(page);
+        });
+    });
+}
+
+async function loadData(page = 1) {
+    try {
+        const response = await fetch(`/api/licenses?page=${page}`);
+        const data = await response.json();
+        updateTable(data);
+    } catch (error) {
+        console.error('Ошибка загрузки данных:', error);
+    }
+}
+
+function updateTable(data) {
+    // Обновление таблицы
+}
+
+function initFilters() {
+    // Логика фильтрации
+}
+
+function initAuth() {
+    // Логика авторизации
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        fetch('/logout', { method: 'POST' })
+            .then(() => window.location.href = '/auth');
+    });
+}
+
+// Подтверждение действий
+function confirmAction(message, callback) {
+    if (confirm(message)) {
+        callback();
+    }
+}

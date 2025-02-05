@@ -2,123 +2,87 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Web Парсер продукции</title>
+    <title>Система управления лицензиями</title>
+    
     <link rel="stylesheet" href="/app/templates/static/styles/styles.css">
 </head>
 <body>
-    <!-- Сайдбар -->
-    <nav class="sidebar">
-        <div class="menu-title">Парсер v2.0</div>
-        
-        <div class="menu-item">
-            <span>📡</span> Сканер
+    <header class="main-header">
+        <h1>Система управления лицензиями</h1>
+        <div class="header-controls">
+            <button class="btn btn-danger" id="logoutBtn">Выход</button>
         </div>
-        <div class="menu-item">
-            <span>🔗</span> Рубикон
-        </div>
-        <div class="menu-item">
-            <span>⚙️</span> Генератор
-        </div>
-        <div class="menu-item">
-            <span>📊</span> ПИК
-        </div>
-        <div class="menu-item">
-            <span>👥</span> Комрад
-        </div>
-        <div class="menu-item">
-            <span>📦</span> Собрать всё
-        </div>
-        <div class="menu-item">
-            <span>⚙️</span> Настройки
-        </div>
-        <div class="menu-item">
-            <span>❓</span> FAQ
-        </div>
-        <div class="menu-item exit">
-            <span>🚪</span> Выход
-        </div>
-    </nav>
+    </header>
 
-    <!-- Основной контент -->
-    <main class="main-content">
-        <header class="header">
-            <h1 class="title">Парсер продукции</h1>
-            
-            <!-- Панель управления ссылками -->
-            <div class="link-management">
-                <div class="link-input-group">
-                    <input type="text" 
-                           class="url-input" 
-                           placeholder="Введите URL для парсинга...">
-                    <button class="btn btn-primary" id="addLinkBtn">Добавить</button>
-                </div>
-                
-                <div class="added-links-list" id="linksContainer">
-                    <!-- Ссылки будут добавляться сюда -->
-                </div>
+    <div class="tabs">
+        <div class="tab active" data-tab="licenses">Лицензии</div>
+        <div class="tab" data-tab="products">Продукты</div>
+    </div>
+
+    <!-- Вкладка Лицензии -->
+    <section class="content-section active" id="licenses">
+        <div class="link-management">
+            <div class="input-group">
+                <input type="text" 
+                       class="url-input" 
+                       placeholder="Введите URL для парсинга...">
+                <button class="btn btn-primary">Добавить ссылку</button>
             </div>
+        </div>
 
-            <div class="search-filter">
-                <input type="text" class="search-input" placeholder="Поиск по таблице...">
-                <select class="filter-select">
-                    <option>Все статусы</option>
-                    <option>Активные</option>
-                    <option>Архив</option>
-                </select>
-            </div>
-        </header>
-
-        <!-- Область таблицы -->
-        <div class="table-area">
-            <table class="data-table">
+        <div class="data-grid">
+            <table>
                 <thead>
                     <tr>
-                        <th class="checkbox-column"><input type="checkbox" id="select-all"></th>\
-                        <th>Название продукции</th>
-                        <th>Название организации</th>
+                        <th>Продукт</th>
+                        <th>Организация</th>
                         <th>S/N</th>
-                        <th>Исполнение</th>
-                        <th>Дата производства</th>
-                        <th>Дата начала лицензии</th>
-                        <th>Дата окончания лицензии</th>
+                        <th>Дата начала</th>
+                        <th>Дата окончания</th>
                         <th>IP</th>
-                        <th>Дополнительных IP</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for item in data %}
-                    <tr class="data-row">
-                        <td class="checkbox-column"><input type="checkbox"></td>
-                        <td>Рубикон</td>
-                        <td>КОМИТЕТ ПО ТРУДУ И ЗАНЯТОСТИ НАСЕЛЕНИЯ ПРАВИТЕЛЬСТВА ХАБАРОВСКОГО КРАЯ</td>
+                    <!-- Данные из БД -->
+                    <tr>
+                        <td>Сканер</td>
+                        <td>КОМИТЕТ ПО ТРУДУ ХАБАРОВСКОГО КРАЯ</td>
                         <td>017710</td>
-                        <td>2</td>
-                        <td>09.01.2025</td>
                         <td>09.01.2025</td>
                         <td>08.01.2026</td>
-                        <td>64</td>
-                        <td>38</td>
+                        <td>158</td>
                     </tr>
-                    {% endfor %}
                 </tbody>
             </table>
+        </div>
+    </section>
 
-            <!-- Постраничная навигация -->
-            <div class="pagination">
-                <div class="page-item active">1</div>
-                <div class="page-item">2</div>
-                <div class="page-item">3</div>
+    <!-- Вкладка Продукты -->
+    <section class="content-section" id="products">
+        <div class="data-grid">
+            <div class="header-controls">
+                <button class="btn btn-primary">Добавить продукт</button>
             </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Версия</th>
+                        <th>Статус</th>
+                        <th>Дата выпуска</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Сканер безопасности</td>
+                        <td>2.1.5</td>
+                        <td>Активен</td>
+                        <td>2024-03-01</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <!-- Контекстное меню -->
-        <div class="context-menu">
-            <div class="context-item">Редактировать</div>
-            <div class="context-item">Удалить</div>
-            <div class="context-item">Переместить</div>
-            <div class="context-item">Экспорт</div>
-        </div>
-    </main>
+    </section>
     <script src="/app/templates/static/js/index.js"></script>
 </body>
 </html>
