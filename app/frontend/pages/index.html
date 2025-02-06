@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Система управления лицензиями</title>
-    
-    <link rel="stylesheet" href="/app/templates/static/styles/styles.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', path='styles/styles.css') }}">
+    <script src="{{ url_for('static', path='js/index.js') }}"></script>
 </head>
-<body>
+<body class="dashboard-page">
     <header class="main-header">
         <h1>Система управления лицензиями</h1>
         <div class="header-controls">
@@ -67,22 +68,16 @@
                 <thead>
                     <tr>
                         <th>Название</th>
-                        <th>Версия</th>
-                        <th>Статус</th>
-                        <th>Дата выпуска</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Сканер безопасности</td>
-                        <td>2.1.5</td>
-                        <td>Активен</td>
-                        <td>2024-03-01</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
-    <script src="/app/templates/static/js/index.js"></script>
+    
 </body>
 </html>

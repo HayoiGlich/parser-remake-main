@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='styles/styles.css') }}">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+        </div>
+        
+        <h1 class="auth-title">Добро пожаловать</h1>
+        <p class="auth-subtitle">Войдите в свой аккаунт</p>
+
+        {% if error %}
+        <div class="alert">Неверный логин или пароль</div>
+        {% endif %}
+
+        <form class="auth-form" method="POST">
+            <div class="input-group">
+                <span class="input-icon">👤</span>
+                <input type="text" 
+                       class="form-input"
+                       name="username"
+                       placeholder="Логин"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <span class="input-icon">🔒</span>
+                <input type="password" 
+                       class="form-input"
+                       name="password"
+                       placeholder="Пароль"
+                       required>
+            </div>
+
+            <button type="submit" class="auth-button">Войти в систему</button>
+        </form>
+    </div>
+</body>
+</html>
