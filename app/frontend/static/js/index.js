@@ -5,7 +5,38 @@ document.addEventListener('DOMContentLoaded', function() {
     initPagination();
     initFilters();
     initAuth();
+    initLinkManagment();
 });
+
+function initLinkManagment() {
+    const input = document.querySelector('.url-input');
+    const addButton = document.querySelector('.btn-primary');
+    const tableBody = document.querySelector('#licenses tbody')
+    
+    addButton.addEventListener('click', () => {
+        const url = input.value.trim();
+        if (!url) {
+            alert('URL не может быть пустым');
+            return;
+        }
+
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td colspan="6">${url}</td>
+        `;
+
+        //Добавляем в таблицу
+        tableBody.appendChild(newRow);
+
+        // Очищаем поле ввода
+        input.value = '';
+
+        // Добавляем логику удаления
+        newRow.querySelector('.btn-delete').addEventListener('click', () => {
+            newRow.remove();
+        });
+    });
+}
 
 function initTabs() {
     document.querySelectorAll('.tab').forEach(tab => {
