@@ -2,7 +2,7 @@ import asyncio
 from sqlalchemy import URL, text
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, AsyncAttrs, async_sessionmaker
 from sqlalchemy.orm import Session, Mapped, mapped_column, declarative_base
-from app.config import settings
+from backend.config import settings
 from sqlalchemy import Integer
 
 engine = create_async_engine(settings.DATABASE_URL_asyncpg, echo=True)
