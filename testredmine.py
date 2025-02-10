@@ -1,6 +1,6 @@
 from redminelib import Redmine
 
-api_key = "70f5b1684a6f7e90a3725d721dc51fb754c2dbf6"
+api_key = ""
 redmine = Redmine('https://tasks.etecs.ru/', key=api_key)
 
 # number_of_task = 29352
