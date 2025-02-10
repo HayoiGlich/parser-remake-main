@@ -2,17 +2,18 @@ from fastapi import FastAPI, Depends, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 import uvicorn
-from pathlib import Path
+from fastapi.security import OAuth2PasswordBearer
 
-BASE_DIR = Path(__file__).parent
 app = FastAPI()
-app.mount("/static", StaticFiles(directory=BASE_DIR / "app/frontend/static"), name="static")
-templates = Jinja2Templates(directory=BASE_DIR / 'app/frontend/pages')
+app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
+templates = Jinja2Templates(directory="frontend/pages")
+oauth2 = OAuth2PasswordBearer(tokenUrl="auth")
 
-@app.get("/login")
+
+@app.get("/auth")
 async def auth(request: Request):
     return templates.TemplateResponse(
-        "login.html",
+        "auth.html",
         {"request": request
          })
 
@@ -20,6 +21,13 @@ async def auth(request: Request):
 async def licenses(request: Request):
     return templates.TemplateResponse(
         "index.html",
+        {"request": request
+         })
+
+@app.post('/logout')
+async def logout(request: Request):
+    return templates.TemplateResponse(
+        "auth.html",
         {"request": request
          })
 
