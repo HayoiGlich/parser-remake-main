@@ -1,10 +1,9 @@
+from __future__ import annotations
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, func,TIMESTAMP
 from sqlalchemy.orm import relationship, Mapped, mapped_column, declarative_base
 from sqlalchemy.dialects.postgresql import JSONB, INET, ARRAY
 import datetime
 from typing import List, Optional, Dict, Any
-from __future__ import annotations
-
 
 Base = declarative_base()
 
@@ -34,7 +33,7 @@ class Device(Base):
     customer_id: Mapped[int] = mapped_column(Integer, ForeignKey('customers.id'), nullable= False) #Внешний ключ Заказчики
     serial_number: Mapped[str] = mapped_column(String(255), nullable=False)
     production_date: Mapped[Optional[Date]] = mapped_column(Date)
-    execution: Mapped[Optional[int]] = mapped_column(Integer(10)) #Исполнение от 1 до 50
+    execution: Mapped[Optional[int]] = mapped_column(Integer) #Исполнение от 1 до 50
     device_type: Mapped[str] = mapped_column(String(255), nullable=False)
     created_at: Mapped[Date] = mapped_column(TIMESTAMP, server_default=func.now(), nullable=False)
     updated_at: Mapped[Date] = mapped_column(TIMESTAMP, server_default=func.now(), onupdate=func.now(), nullable= False)
