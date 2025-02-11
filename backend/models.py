@@ -34,10 +34,10 @@ class Device(Base):
     customer_id: Mapped[int] = mapped_column(Integer, ForeignKey('customers.id'), nullable= False) #Внешний ключ Заказчики
     serial_number: Mapped[str] = mapped_column(String(255), nullable=False)
     production_date: Mapped[Optional[Date]] = mapped_column(Date)
-    execution: Mapped[int] = mapped_column(Integer(10),) #Исполнение(от 1 до 50)
+    execution: Mapped[Optional[int]] = mapped_column(Integer(10)) #Исполнение от 1 до 50
     device_type: Mapped[str] = mapped_column(String(255), nullable=False)
-    created_at: Mapped[datetime.datetime] = mapped_column(TIMESTAMP, server_default=func.now(), nullable=False)
-    updated_at: Mapped[datetime.datetime] = mapped_column(TIMESTAMP, server_default=func.now(), onupdate=func.now(), nullable= False)
+    created_at: Mapped[Date] = mapped_column(TIMESTAMP, server_default=func.now(), nullable=False)
+    updated_at: Mapped[Date] = mapped_column(TIMESTAMP, server_default=func.now(), onupdate=func.now(), nullable= False)
 
     #Зависисмости
     user: Mapped[User] = relationship("User", back_populates="devices")
@@ -54,24 +54,54 @@ class Scanner_details(Base):
     __tablename__ = 'scaner_details'
 
     device_id: Mapped[int] = mapped_column(Integer, ForeignKey('devices.id', ondelete="CASCADE"), primary_key=True)
+    license_start_date: Mapped[Optional[Date]] = mapped_column(Date)
+    license_end_date:Mapped[Optional[Date]] = mapped_column(Date)
+    ip: Mapped[Optional[str]] = mapped_column(INET)
+    additional_ip: Mapped[Optional[str]] = mapped_column(INET)
 
+    #Связь к развязке
+    device: Mapped[Device] = relationship("Device", back_populates="scanner_details")
 class Komrad_details(Base):
     __tablename__ = 'komrad_details'
 
-    pass
+    device_id: Mapped[int] = mapped_column(Integer, ForeignKey('devices.id', ondelete="CASCADE"), primary_key=True)
+    license_start_date: Mapped[Optional[Date]] = mapped_column(Date)
+    license_end_date: Mapped[Optional[Date]] = mapped_column(Date)
+    tp_type: Mapped[Optional[str]] = mapped_column(String(20))
+    license_type: Mapped[Optional[str]] = mapped_column(String(20))
+    tp_start_date: Mapped[Optional[Date]] = mapped_column(Date)
+    tp_end_date: Mapped[Optional[Date]] = mapped_column(Date)
+
+    #Связь к развязке
+    device: Mapped[Device] = relationship("Device", back_populates="komrad_details")
 
 class Rubicon_details(Base):
     __tablename__ = 'rubicon_details'
 
-    pass
+    device_id: Mapped[int] = mapped_column(Integer, ForeignKey('devices.id', ondelete="CASCADE"), primary_key=True)
+    start_date: Mapped[Optional[Date]] = mapped_column(Date)
+    end_date: Mapped[Optional[Date]] = mapped_column(Date)
+
+    #Связь к развязке
+    device: Mapped[Device] = relationship("Device", back_populates="rubicon_details")
 
 class Pik_details(Base):
     __tablename__ = 'pik_details'
     
-    pass
+    device_id: Mapped[int] = mapped_column(Integer, ForeignKey('devices.id', ondelete="CASCADE"), primary_key=True)
+    license_start_date: Mapped[Optional[Date]] = mapped_column(Date)
+    license_end_date: Mapped[Optional[Date]] = mapped_column(Date)
+
+    #Связь к развязке
+    device: Mapped[Device] = relationship("Device", back_populates="pik_details")
 
 class Generator_details(Base):
     __tablename__ = 'generator_details'
 
-    pass
+    device_id: Mapped[int] = mapped_column(Integer, ForeignKey('devices.id', ondelete="CASCADE"), primary_key=True)
+    license_start_date: Mapped[Optional[Date]] = mapped_column(Date)
+    license_end_date: Mapped[Optional[Date]] = mapped_column(Date)
+    tp_end_date: Mapped[Optional[Date]] = mapped_column(Date)
 
+    #Связь к развязке
+    device: Mapped[Device] = relationship("Device", back_populates="generator_details")
