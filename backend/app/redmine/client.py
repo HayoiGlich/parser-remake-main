@@ -10,3 +10,5 @@ class RedmineAPI:
         self.ip = issue.custom_fields[10].value
         self.assigned_to = issue.assigned_to
 
+    
+

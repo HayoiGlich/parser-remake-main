@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship, Mapped, mapped_column, declarative_base
 from sqlalchemy.dialects.postgresql import JSONB, INET, ARRAY
 from typing import List, Optional, Dict, Any
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
-from backend.app.config import settings
+from config import settings
 
 engine = create_async_engine(settings.DATABASE_URL_asyncpg, echo=True)
 
