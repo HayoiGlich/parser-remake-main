@@ -67,5 +67,5 @@ def fetch_and_save_issues(
 
 if __name__ == "__main__":
     API_URL = "https://tasks.etecs.ru/"
-    API_KEY = "918f793bc080e6a52d795dc3b0058d58f47b303g"
+    API_KEY = "918f793bc080e6a52d795dc3b0058d58f47b303f"
     fetch_and_save_issues(API_URL, API_KEY, limit=20, assigned_to_id='me', output_file="issues.json")
