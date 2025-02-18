@@ -3,15 +3,8 @@
         "id": 29613,
         "subject": "Продление ИНСПЕКТОР сканер вс  5.0 для ПАО \"Дальприбор\"",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-17 09:06:49",
-        "updated_on": "2025-02-17 11:49:12",
         "ip": "8 IP",
-        "priority": "Средний",
-        "due_date": "2025-02-28",
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "003900"
         ]
@@ -20,15 +13,8 @@
         "id": 29609,
         "subject": "Инспектор 5.0 для ООО ВИЖНЛАБС ",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-17 08:40:38",
-        "updated_on": "2025-02-17 11:46:02",
         "ip": "8 IP",
-        "priority": "Средний",
-        "due_date": "2025-03-03",
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "017828"
         ]
@@ -37,15 +23,8 @@
         "id": 29607,
         "subject": "Продление сканер вс  5.0 для МАОУ СШ № 76",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-17 08:29:36",
-        "updated_on": "2025-02-17 11:44:28",
         "ip": "4 IP",
-        "priority": "Средний",
-        "due_date": "2025-03-03",
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "008739"
         ]
@@ -54,15 +33,8 @@
         "id": 29604,
         "subject": "Пик для ООО \"НЕОДАТА\"",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-17 08:10:32",
-        "updated_on": "2025-02-17 11:41:55",
         "ip": "",
-        "priority": "Средний",
-        "due_date": null,
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "025120101.25.0002"
         ]
@@ -71,15 +43,8 @@
         "id": 29603,
         "subject": "Продление Сканер ВС 5.0 для КГКУ РЦОКО\t",
         "description": "списать материалы под лкб",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-17 07:51:26",
-        "updated_on": "2025-02-17 12:03:40",
         "ip": "256 IP",
-        "priority": "Средний",
-        "due_date": null,
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "ЭФ2204-181167"
         ]
@@ -88,15 +53,8 @@
         "id": 29587,
         "subject": "Инспектор 6 для ООО \"СЦСО \"НАДЕЖДА\"",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-14 13:08:15",
-        "updated_on": "2025-02-17 12:01:53",
         "ip": "16 IP",
-        "priority": "Средний",
-        "due_date": "2025-02-28",
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "017832"
         ]
@@ -105,15 +63,8 @@
         "id": 29569,
         "subject": "Сканер ВС 6.0 Инспектор для ООО «НОВА Сайберсекьюрити»",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-13 13:18:13",
-        "updated_on": "2025-02-17 12:00:15",
         "ip": "8 IP",
-        "priority": "Средний",
-        "due_date": null,
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "017831"
         ]
@@ -122,15 +73,8 @@
         "id": 29545,
         "subject": "Продление сканер вс  5.0 для АО \"НПО \"Сплав\" им. А.Н. Ганичева\"",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-12 14:17:13",
-        "updated_on": "2025-02-17 11:56:45",
         "ip": "16 IP",
-        "priority": "Средний",
-        "due_date": "2025-02-26",
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "010133"
         ]
@@ -139,15 +83,8 @@
         "id": 29543,
         "subject": "Продление сканер вс  5.0 для Территориальный фонд обязательного медицинского страхования Камчатского края",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-12 14:11:45",
-        "updated_on": "2025-02-17 11:55:01",
         "ip": "32 IP",
-        "priority": "Средний",
-        "due_date": "2025-02-26",
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "0060601.22.0345"
         ]
@@ -156,15 +93,8 @@
         "id": 29539,
         "subject": "Продление Сканер ВС 5.0  для АО \"163 БТРЗ\"",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-12 13:53:50",
-        "updated_on": "2025-02-17 11:50:22",
         "ip": "4 IP",
-        "priority": "Средний",
-        "due_date": "2025-02-26",
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "010136"
         ]
@@ -173,15 +103,8 @@
         "id": 29538,
         "subject": "Продление сканер вс  5.0 для ГБПОУ СО «Усольский сельскохозяйственный техникум»",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-12 13:49:29",
-        "updated_on": "2025-02-17 11:40:58",
         "ip": "4 IP",
-        "priority": "Средний",
-        "due_date": "2025-02-26",
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "ЭФ2204-200270"
         ]
@@ -190,15 +113,8 @@
         "id": 29473,
         "subject": "Рубикон для АО «НИЦ «ИНТЕЛЭЛЕКТРОН»",
         "description": "",
-        "status": "Новая",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-02-11 10:27:02",
-        "updated_on": "2025-02-14 07:29:16",
         "ip": "",
-        "priority": "Средний",
-        "due_date": null,
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "2-0459",
             "2-0460",
@@ -213,15 +129,8 @@
         "id": 29217,
         "subject": "Рубикон для АО «Обуховское»",
         "description": "сборка от 31.01.2025\r\nСП и СИ ТС ВП (добавь такой вариант в работы) ",
-        "status": "В работе",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-01-30 04:13:58",
-        "updated_on": "2025-01-31 08:11:34",
         "ip": "",
-        "priority": "Средний",
-        "due_date": null,
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "2-0437",
             "2-0438"
@@ -231,15 +140,8 @@
         "id": 29055,
         "subject": "Рубикон для АО \"ПКБ \"РИО\"",
         "description": "",
-        "status": "В работе",
         "assigned_to": "Аточкин Александр",
-        "created_on": "2025-01-20 15:05:11",
-        "updated_on": "2025-01-24 08:03:55",
         "ip": "",
-        "priority": "Средний",
-        "due_date": null,
-        "estimated_hours": null,
-        "done_ratio": 0,
         "serial_number": [
             "2-0433"
         ]

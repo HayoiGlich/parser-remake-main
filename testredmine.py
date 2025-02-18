@@ -3,7 +3,6 @@ import json
 import re
 
 def expand_serial_numbers(serial_value: str):
-    """ Разбирает строку с серийными номерами и формирует последовательность, если указан диапазон. """
     serial_numbers = []
 
     if not isinstance(serial_value, str) or not serial_value.strip():
@@ -47,15 +46,8 @@ def fetch_and_save_issues(
             "id": issue.id,
             "subject": issue.subject,
             "description": issue.description,
-            "status": issue.status.name if hasattr(issue, "status") and issue.status else None,
             "assigned_to": issue.assigned_to.name if hasattr(issue, "assigned_to") and issue.assigned_to else None,
-            "created_on": str(issue.created_on),
-            "updated_on": str(issue.updated_on),
             "ip": issue.custom_fields[10].value,
-            "priority": issue.priority.name if hasattr(issue, "priority") and issue.priority else None,
-            "due_date": str(issue.due_date) if hasattr(issue, "due_date") and issue.due_date else None,
-            "estimated_hours": issue.estimated_hours if hasattr(issue, "estimated_hours") else None,
-            "done_ratio": issue.done_ratio if hasattr(issue, "done_ratio") else None,
             "serial_number": serial_numbers,
         }
 
@@ -68,4 +60,4 @@ def fetch_and_save_issues(
 if __name__ == "__main__":
     API_URL = "https://tasks.etecs.ru/"
     API_KEY = "918f793bc080e6a52d795dc3b0058d58f47b303f"
-    fetch_and_save_issues(API_URL, API_KEY, limit=20, assigned_to_id='me', output_file="issues.json")
+    fetch_and_save_issues(API_URL, API_KEY, limit=int(input("Введите число задач: ")), assigned_to_id='me', output_file="issues.json")
